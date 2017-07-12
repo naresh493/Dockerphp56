@@ -5,8 +5,7 @@ From artifactory.cobalt.com/skyships-base-agent
 MAINTAINER Naresh B
 
 USER root
-RUN mkdir /opt/staging \
-    && mkdir /opt/staging/configs
+RUN mkdir -p mkdir /opt/staging/configs
 WORKDIR /opt/staging/configs
 # -----------------------------------------------------------------------------
 # PHP 5.6 repository
@@ -31,4 +30,4 @@ RUN sed -i \
 	-e 's~^;user_ini.filename =$~user_ini.filename =~g' \
 	/etc/php.ini
 
-VOLUME /usr/local/bin /opt/staging/configs
+RUN ln -n /usr/local/bin /opt/staging/configs
